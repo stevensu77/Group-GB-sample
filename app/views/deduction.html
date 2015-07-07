@@ -1,3 +1,15 @@
-<div>
-  Put your body here. User name: {{userName}}
+<div class="carddisplaypage">
+	<span>Display Method</span>
+	<form>
+	<input type="radio" name="displayMethod" value="list" checked> List
+	<br>
+	<input type="radio" name="displayMethod" value="card"> Card
+	</form>
+    <div class="displaycard" 
+    ng-repeat="deduction in deductions">
+        <p>Name: {{deduction.name}}</p>
+        <p>Short Discription: {{deduction.shortDiscription}}</p>
+        <p>Long Discription: {{deduction.longDiscription}}</p>
+        <p>Value: {{deduction.value}}</p>
+    </div>
 </div>
