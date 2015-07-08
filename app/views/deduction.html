@@ -1,3 +1,27 @@
-<div>
-  Put your body here. User name: {{userName}}
+
+<div class="tableDisplay" >
+  <form>
+    <input type="radio" name="displayMethod" value="list" checked>
+    List
+    <br/>
+    <input type="radio" name="displayMethod" value="table" checked>
+    Card
+  </form>
+  <table id="customers" style="width:100%" >
+    <tr>
+      <th>Deduction Name</th>
+      <th>Short Description</th>
+      <th>Long Description</th>
+      <th>Value</th>
+      <th>ID</th>
+    </tr>
+    <tr ng-repeat="deduction in deductions">
+      <td>Name: {{deduction.deductionName}}</td>
+      <td>Short Description: {{deduction.shortDescription}}</td>
+      <td>Long Description: {{deduction.longDescription}}</td>
+      <td>Value: {{deduction.value}}</td>
+      <td>ID: {{deduction.id}}</td>
+
+    </tr>
+  </table>
 </div>
