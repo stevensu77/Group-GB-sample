@@ -1,15 +1,17 @@
 <div class="carddisplaypage">
-	<span>Display Method</span>
-	<form>
-	<input type="radio" name="displayMethod" value="list" checked> List
-	<br>
-	<input type="radio" name="displayMethod" value="card"> Card
-	</form>
-    <div class="displaycard" 
-    ng-repeat="deduction in deductions">
-        <p>Name: {{deduction.name}}</p>
-        <p>Short Discription: {{deduction.shortDiscription}}</p>
-        <p>Long Discription: {{deduction.longDiscription}}</p>
+    <span>Display Method</span>
+    <form>
+        <input type="radio" name="displayMethod" value="list" checked> List
+        <br>
+        <input type="radio" name="displayMethod" value="card"> Card
+    </form>
+    <div class="displaycard" ng-repeat="deduction in deductions">
+        <p>Name: {{deduction.deductionName}}</p>
+        <p>Short Description: {{deduction.shortDescription}}</p>
+        <p>Long Description: {{deduction.longDescription}}</p>
         <p>Value: {{deduction.value}}</p>
+        <p>ID: {{deduction.id}}</p>
+        <button class="btn">Edit</button>
+        <button class="btn">Delete</button>
     </div>
 </div>
