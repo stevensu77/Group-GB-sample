@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var login = require('./routes/login');
+var deduction = require('./routes/deduction');
 
 var app = express();
 
@@ -24,7 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/api/getuser', users);
-
+app.use('/api/login', login);
+app.use('/api/deduction', deduction);
 
 console.log('Green Box server started....');
 
