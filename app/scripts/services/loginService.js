@@ -1,53 +1,28 @@
 'use strict';
 angular.module('gbApp')
-.factory('loginService',function($http, $state){
-	// return{
-	// 	login:function(data,scope){
-	// 		var $promise=$http.post('data/user.php',data); //send data to user.php
-	// 		$promise.then(function(msg){
-	// 			var uid=msg.data;
-	// 			if(uid){
-	// 				//scope.msgtxt='Correct information';
-	// 				sessionService.set('uid',uid);
-	// 				$location.path('/home');
-	// 			}	       
-	// 			else  {
-	// 				scope.msgtxt='incorrect information';
-	// 				$location.path('/login');
-	// 			}				   
-	// 		});
-	// 	},
-	// 	logout:function(){
-	// 		sessionService.destroy('uid');
-	// 		$location.path('/login');
-	// 	},
-	// 	islogged:function(){
-	// 		var $checkSessionServer=$http.post('data/check_session.php');
-	// 		return $checkSessionServer;
-	// 		/*
-	// 		if(sessionService.get('user')) return true;
-	// 		else return false;
-	// 		*/
-	// 	}
-	// }
+.factory('loginService',function($http, $state, sessionService){
 	return{
-		login:function(data,scope){
-			//console.log(data.email);
-			//console.log(data.pwd);
-			if(data.email == "greenbox@gmail.com" && data.pwd=="1234"){
-				$state.go('root.deduction');
-				console.log('redirect');
-			}	
-			else{
-				$state.go('login');
-				console.log('none redirect');
-			}
+		login: function(data, scope){
+			var promise= $http.post('/api/login', data); //send data to login api
+			promise.then(function(response){
+					scope.msgtxt='Correct information';
+					console.log(response);
+					sessionService.set('user',"Todd");
+					$state.go('root.deduction');
+				}, function(response){
+					scope.msgtxt='incorrect information';  
+					scope.user.password = "";
+					$state.go('login');
+				}				   
+			);
+		},
+		logout: function(){
+			sessionService.destroy('user');
+			$state.go('login');
+		},
+		islogged:function(){
+			if(sessionService.get('user')) return true;
+			else return false;	
 		}
-	}
-
-
-
-
-
-
+	};
 });
