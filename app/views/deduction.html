@@ -6,6 +6,34 @@
    <label class="btn btn-info" ng-model="displayModel" btn-radio="'list'">List</label>
     <label class="btn btn-info" ng-model="displayModel" btn-radio="'card'">Card</label>
 </div>
+=======
+<!-- <div class="carddisplaypage">
+    <span>Display Method</span>
+    <form>
+        <input type="radio" ng-model="displayMethod" value="displaylist" checked> List
+        <br>
+        <input type="radio" ng-model="displayMethod" value="displaycard"> Card
+    </form>
+    <div 
+    ng-repeat="deduction in deductions" ng-class="displayMethod" ng-show=
+
+    "displayMethod=='displaycard'">
+        <p>Name: {{deduction.deductionName}}</p>
+        <p>Short Description: {{deduction.shortDescription}}</p>
+        <p>Long Description: {{deduction.longDescription}}</p>
+        <p>Value: {{deduction.value}}</p>
+        <p>ID: {{deduction.id}}</p>
+        <button class="btn">Edit</button>
+        <button class="btn">Delete</button>
+    </div>
+</div>
+ -->
+ <div class="carddisplaypage">
+ <div class="btn-group">
+   <label class="btn btn-info" ng-model="displayModel" btn-radio="'list'">List</label>
+    <label class="btn btn-info" ng-model="displayModel" btn-radio="'card'">Card</label>
+</div>
+>>>>>>> 00c52e5d252395de1943d6f0a1994d4d66d0e514
 <input placeholder="Deduction Name" ng-model="filterName"/>
 <input placeholder="Long Description" ng-model="filterLong"/>
 <input placeholder="Short Description" ng-model="filterShort"/>
@@ -43,5 +71,9 @@
 			<button class="btn btn-danger" ng-click="deleteDeduction($index)">Delete</button>
 		</div>
 </div>
+<<<<<<< HEAD
 
 
+=======
+</div>
+>>>>>>> 00c52e5d252395de1943d6f0a1994d4d66d0e514
