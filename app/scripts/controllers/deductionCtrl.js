@@ -5,7 +5,7 @@ angular.module('gbApp')
         getUserService.getUser().$promise.then(function(response) {
             $scope.userName = response.userName;
         });
-
+        $scope.displayMethod="displaycard"
         $http.get('/api/deduction').
         success(function(data) {
             $scope.deductions = data.deductions;
@@ -15,16 +15,10 @@ angular.module('gbApp')
             console.log("ERROR WITH HTTP CALL");
         });
 
-        // $scope.deductions = [{
-        //     'name': 'Nexus S',
-        //     'shortDiscription': 'Fast just got faster with Nexus S.'
-        // }, {
-        //     'name': 'Motorola XOOM™ with Wi-Fi',
-        //     'shortDiscription': 'The Next, Next Generation tablet.'
-        // }, {
-        //     'name': 'MOTOROLA XOOM™',
-        //     'shortDiscription': 'The Next, Next Generation tablet.'
-        // }];
-
+        $scope.deleteDeduction = function(index){
+        	if(window.confirm("Are U sure to delete?")){
+        		$scope.deductions.splice(index,1);
+        	}
+        }
         console.log('deduction state');
     });
