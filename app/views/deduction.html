@@ -3,10 +3,15 @@
   <br>
   <br>
   <input type="button" value="Add" ng-click="addDeduction()">
+  
   <br>
-<!--   <div ng-repeat= 'deduction in deductions'>
+  <div ng-repeat= 'deduction in deductions'>
   	{{deduction.deductionName}}
+  	{{deduction.shortDiscription}}
+  	{{deduction.longDiscription}}
   	{{deduction.value}}
-  </div> -->
+  	<input type="button" value="Edit" ng-click="editDeduction($index)">  
+  </div>
   <sbdir></sbdir>
+  <ebdir></ebdir>
 </div>

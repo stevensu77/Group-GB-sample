@@ -6,4 +6,10 @@ angular.module('gbApp')
 		restrict: 'E',
 		templateUrl: 'Sbtem.html'
 	};
+})
+.directive('ebdir',function(){
+	return{
+		restrict: 'E',
+		templateUrl: 'Ebtem.html'
+	};
 });
