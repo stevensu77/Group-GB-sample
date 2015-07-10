@@ -42,6 +42,21 @@ angular
         url: '/deduction',
         templateUrl: 'views/deduction.html',
         controller: 'deductionCtrl'
+      })
+      .state('root.overview', {
+        url: '/overview',
+        templateUrl: 'views/overview.html',
+        controller: 'overviewCtrl'
+      })
+      .state('root.producer', {
+        url: '/producer',
+        templateUrl: 'views/producer.html',
+        controller: 'producerCtrl'
+      })
+      .state('root.contact', {
+        url: '/contact',
+        templateUrl: 'views/contact.html',
+        controller: 'contactCtrl'
       });
   })
   .run(function ($rootScope, loginService) {

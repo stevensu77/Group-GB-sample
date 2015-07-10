@@ -1,0 +1,20 @@
+	<div ng-hide='bool' ng-style="{'right':OriPos, 'top':SbHeight}" id="addbar">
+		<form >
+			<div>
+				<h3 style="color:white">Please add deduction:</h3>
+			</div>
+			<div class="form-inline">
+			
+				<input type="text" class="form-control" style="width: 150px" ng-model='deductionName' placeholder='Deduction Name'>
+			
+				<input type="text" class="form-control" ng-model='shortDis' placeholder='Short Discription'>
+			
+				<input type="text" class="form-control" style="width: 400px" ng-model ='longDis' placeholder='Long Discription'>
+			
+				<input type="text" class="form-control" style="width: 80px" ng-model='userValue' placeholder='Value'>
+			
+			<input type="button" class="btn btn-success" value="submit" ng-click="submitDeduction()">
+            <input type="button" class="btn btn-success" value="cancel" ng-click="cancelDeduction()">
+        </div>
+		</form>
+	</div>

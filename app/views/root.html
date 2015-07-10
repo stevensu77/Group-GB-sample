@@ -14,7 +14,39 @@
 
 <div class="row">
   <div class="col-xs-2">
-    Put your side Nav bar here.
+<!--     Put your side Nav bar here. -->
+<!-- <div id='menu'>
+<ul>
+   <li  class="sideItem" ui-sref-active="is-active">
+    <a ui-sref="root.home"><img src="images/home.png" alt="HOME" ><br>
+      <span>HOME</span>
+    </a>
+   </li>
+   <li ui-sref-active="is-active"><a ui-sref="root.overview"><img src="images/overview.png" alt="OVERVIEW" class="sideItem"><br><span>OVER VIEW</span></a></li>
+   <li ui-sref-active="is-active"><a ui-sref="root.deduction"><img src="images/deduction.png" alt="DEDUCTION" class="sideItem"><br><span>DEDUCTION</span></a></li>
+   <li ui-sref-active="is-active"><a ui-sref="root.other_1"><img src="images/others.png" alt="OTHER" class="sideItem"><br><span>OTHER_1</span></a></li>
+   <li ui-sref-active="is-active"><a ui-sref="root.other_2"><img src="images/others.png" alt="OTHER" class="sideItem"><br><span>OTHER_2</span></a></li>
+</ul>
+</div> -->
+<div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+          <li ui-sref-active="selected" class="sideItem" ui-sref="root.overview">
+              <span class="glyphicon glyphicon-home"></span> &nbsp OVERVIEW
+          </li>
+          <li ui-sref-active="selected" class="sideItem" ui-sref="root.deduction">
+              <span class="glyphicon glyphicon-globe"></span> &nbsp Deduction
+          </li>
+          <li ui-sref-active="selected" class="sideItem" ui-sref="root.producer">
+              <span class="glyphicon glyphicon-user"></span> &nbsp Producer
+          </li>
+          <li ui-sref-active="selected" class="sideItem" ui-sref="root.contact">
+              <span class="glyphicon glyphicon-phone"></span> &nbsp Contact
+          </li>
+    </ul>
+</div>
+
+
+
     
   </div>
   <div class="col-xs-10">

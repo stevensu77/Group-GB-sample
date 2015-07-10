@@ -1,45 +1,55 @@
-<div class="carddisplaypage">
- <div class="btn-group">
-   <label class="btn btn-info" ng-model="displayModel" btn-radio="'list'">List</label>
+<div class="otterbox">
+ <div class="btn-group" class="space">
+    <label class="btn btn-info" ng-model="displayModel" btn-radio="'list'">List</label>
     <label class="btn btn-info" ng-model="displayModel" btn-radio="'card'">Card</label>
 </div>
-<input placeholder="Deduction Name" ng-model="filterName"/>
-<input placeholder="Long Description" ng-model="filterLong"/>
-<input placeholder="Short Description" ng-model="filterShort"/>
-<input placeholder="Value" ng-model="filterValue"/>
+<input class="space" placeholder="Deduction Name" ng-model="deductionfilter.deductionName"/>
+<input class="space" placeholder="Long Description" ng-model="deductionfilter.longDescription"/>
+<input class="space" placeholder="Short Description" ng-model="deductionfilter.shortDescription"/>
+<input class="space" placeholder="Value" ng-model="deductionfilter.value"/>
 <button class="btn btn-success" ng-click="addDeduction()">Add</button>
 
-<div ng-show="displayModel=='list'">
-	<table class="table table-striped table-hover">
+<br/><br/>
+
+<div ng-show="displayModel=='list'" >
+	<table class="table table-striped table-hover fixed_headers">
+		<thead>
 		<tr>
-			<th>Name</th>
-			<th>Long Description</th>
-			<th>Short Description</th>
-			<th>Value</th>
+			<th class="tableHead" ng-click="sortingBy('deductionName')">Name</th>
+			<th class="tableHead" ng-click="sortingBy('longDescription')">Long Description</th>
+			<th class="tableHead"ng-click="sortingBy('shortDescription')">Short Description</th>
+			<th class="tableHead" ng-click="sortingBy('value')">Value</th>
+			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
-		<tr ng-repeat = "deduction in deductions">
+		</thead>
+		<tbody>
+		<tr ng-repeat = "deduction in deductions | filter:deductionfilter | orderBy: sorting: reverse">
 			<td>{{deduction.deductionName}}</td>
-			<td>{{deduction.longDescription}}</td>
+			<td style="width:380px">{{deduction.longDescription}}</td>
 			<td>{{deduction.shortDescription}}</td>
 			<td>{{deduction.value}}</td>
+			<td><button class="btn btn-info" ng-click="editDeduction($index)">Edit</button></td>
 			<td><button class="btn btn-warning" ng-click="deleteDeduction($index)">Delete</button></td>
 		</tr>
+		</tbody>
 	</table>
 </div>
 
-<div ng-show="displayModel=='card'">
-		<div ng-repeat = "deduction in deductions"
-			style="width:200px; float:left"
+<div ng-show="displayModel=='card'"  style="overflow:auto; height:500px">
+		<div class="carddisplay" ng-repeat = "deduction in deductions | filter:deductionfilter"
+			style="width:195px; float:left"
 		>
-			<h2>{{deduction.deductionName}}</h2>
-			<p>{{deduction.longDescription}}</p>
+			<h2 style="font-size:24px">{{deduction.deductionName}}</h2>
+			<p style="font-size:14px"><i>{{deduction.longDescription}}</i></p>
 			<p>{{deduction.shortDescription}}</p>
-			<p>{{deduction.value}}</p>
-			<button class="btn btn-info" ng-click="editDeduction($index)">Edit</button>
+			<p style="color:grey">{{deduction.value}}</p>
+			<button  style="width:65px;margin:0 5px" class="btn btn-info" ng-click="editDeduction($index)">Edit</button>
 			<button class="btn btn-danger" ng-click="deleteDeduction($index)">Delete</button>
 		</div>
 </div>
 
+  <sbdir></sbdir>
+  <ebdir></ebdir>
 </div>
 
