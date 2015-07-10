@@ -61,3 +61,10 @@
   height: 430px;
 }
 
+.table.fixed_headers thead tr th{
+  border-bottom: 0;
+
+}
+
+
+
