@@ -17,9 +17,17 @@ angular.module('gbApp')
 
         $scope.deleteDeduction = function(index) {
             if (window.confirm("Are U sure to delete?")) {
-                 $scope.deductions.splice(index, 1);
+                $scope.deductions.splice(index, 1);
+             
                 
-                 deleteDeductionService.deleteDeduction($scope.deductions[index].id);
+                $id = deduction.id;
+
+                // Now call update passing in the ID first then the object you are updating
+                deleteDed.delete({
+                    id: $id
+                }, deduction);
+
+                //       deleteDeductionService.deleteDeduction($scope.deductions[index].id);
 
                 // $http.delete(/api/deduction/:id).then(function(response) {
                 //     console.log('all is good', response.data);

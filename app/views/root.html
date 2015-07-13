@@ -1,6 +1,14 @@
 <div class="row">
   <div class="col-xs-2">
-    Put your side Nav bar here.
+    <div id='menu'>
+		<ul>
+		   <li ui-sref-active="is-active"><a ui-sref="root.home"><img src="images/home.png" alt="HOME" style="width:30px;height:28px;"><br><span>HOME</span></a></li>
+		   <li ui-sref-active="is-active"><a ui-sref="root.overview"><img src="images/overview.png" alt="OVERVIEW" style="width:28px;height:28px;"><br><span>OVER VIEW</span></a></li>
+		   <li ui-sref-active="is-active"><a ui-sref="root.deduction"><img src="images/deduction.png" alt="DEDUCTION" style="width:30px;height:32px;"><br><span>DEDUCTION</span></a></li>
+		   <li ui-sref-active="is-active"><a ui-sref="root.other_1"><img src="images/others.png" alt="OTHER" style="width:30px;height:30px;"><br><span>OTHER_1</span></a></li>
+		   <li ui-sref-active="is-active"><a ui-sref="root.other_2"><img src="images/others.png" alt="OTHER" style="width:30px;height:30px;"><br><span>OTHER_2</span></a></li>
+		</ul>
+	</div>
   </div>
   <div class="col-xs-10">
     <ui-view></ui-view>
