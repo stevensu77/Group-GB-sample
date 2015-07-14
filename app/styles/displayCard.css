@@ -1,0 +1,70 @@
+.otterbox{
+  margin-top: 10px;
+
+}
+
+.carddisplay{
+  margin-right: 35px;
+
+}
+.space{
+  height: 32px;
+  padding-left: 10px;
+  border-radius: 5px;
+	margin-left: 10px;
+  margin-right: 15px;
+}
+
+
+.tableHead{
+  cursor:pointer;
+}
+.tableHead:hover{
+  color: grey;
+}
+
+
+.fixed_headers td:nth-child(1),
+.fixed_headers th:nth-child(1) {
+  min-width: 120px;
+}
+.fixed_headers td:nth-child(2),
+.fixed_headers th:nth-child(2) {
+  min-width: 400px;
+}
+.fixed_headers td:nth-child(3),
+.fixed_headers th:nth-child(3) {
+  width: 160px;
+}
+.fixed_headers td:nth-child(4),
+.fixed_headers th:nth-child(4) {
+  width: 80px;
+}
+.fixed_headers td:nth-child(5),
+.fixed_headers th:nth-child(5) {
+  width: 80px;
+}
+
+.fixed_headers thead {
+  background-color: #333333;
+  color: #fdfdfd;
+}
+
+.fixed_headers thead tr {
+  display: block;
+  position: relative;
+}
+
+.fixed_headers tbody {
+  display: block;
+  overflow: auto;
+  height: 430px;
+}
+
+.table.fixed_headers thead tr th{
+  border-bottom: 0;
+
+}
+
+
+

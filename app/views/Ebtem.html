@@ -1,0 +1,20 @@
+	<div ng-hide='editbool' ng-style="{'right':editOriPos, 'top':SbHeight}" id="editbar">
+		<form >
+			<div>
+				<h3 style="color:white">Please edit deduction:</h3>
+			</div>
+			<div class="form-inline">
+			
+				<input type="text" class="form-control" style="width: 150px" ng-model='editName' placeholder='Deduction Name'>
+			
+				<input type="text" class="form-control" ng-model='editShort' placeholder='Short Discription'>
+			
+				<input type="text" class="form-control" style="width: 400px" ng-model ='editLong' placeholder='Long Discription'>
+			
+				<input type="text" class="form-control" style="width: 80px" ng-model='editValue' placeholder='Value'>
+			
+			<input type="button" class="btn btn-primary" value="submit" ng-click="ebsubmitDeduction()">
+            <input type="button" class="btn btn-primary" value="cancel" ng-click="ebcancelDeduction()">
+        </div>
+		</form>
+	</div>
