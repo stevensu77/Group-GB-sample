@@ -1,10 +1,18 @@
 'use strict';
 
+/**
+ * @ngdoc overview
+ * @name gbApp
+ * @description
+ * # deductionCtrl
+ *
+ * controller deductionCtrl.
+ */
 angular.module('gbApp')
-  .controller('deductionCtrl', function($scope, $window, getUserService, $http) {
+  .controller('deductionCtrl', function($scope, $window, getUserService, $http, $modal) {
   
-        $scope.displayModel = "list";
-        $scope.sorting = "deductionName";
+        $scope.displayModel = "list";      // initial data display mode to be "List"
+        $scope.sorting = "deductionName"; 
         $scope.reverse = false;
         $scope.sortingBy = function(flag){
             $scope.sorting = flag;
@@ -12,6 +20,7 @@ angular.module('gbApp')
         }
 
 
+        // Call api get deduction data
   	    $http.get('/api/deduction')
         .success(function(data) {
             $scope.deductions = data.deductions;
@@ -20,31 +29,35 @@ angular.module('gbApp')
             console.log("Erro with deduction api Call");
         });
 
-        $scope.deleteDeduction = function(removeItem){
-        	if(window.confirm("Are U sure to delete?")){
-                for(var i=0; i<$scope.deductions.length; i++){
-                    if(angular.equals($scope.deductions[i], removeItem)){
-                        $scope.deductions.splice(i, 1);
-                        break;
-                    }
-                }
-        	}
-        }
 
-        // $scope.deleteDeduction = function(index){
-        //     var did = $scope.deductions[index].id;
-        //     if(window.confirm("Are U sure to delete?")){
-        //     //  $scope.deductions.splice(index,1);
-        //     $http.delete("/api/deduction/:id", {id:did})
-        //     .success(function(res){
-        //        // console.log(res);
-        //        if(res.status == "success"){
-        //           $scope.deductions.splice(index,1);
-        //           alert("Delete succeeds!");
-        //        }
-        //     });
-        //     }
-        // }
+        // Delete deduction node
+        $scope.deleteDeduction = function (removeItem) {
+            var modalInstance = $modal.open({
+                templateUrl: 'views/confirmBox.html',
+                controller: 'confirmBoxCtrl'
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                console.log(selectedItem);
+                $http.delete("/api/deduction/:id", {id:removeItem.id})
+                .success(function(res){
+                    if(res.status == "success"){
+                        $scope.deductions.splice($scope.deductions.indexOf(removeItem), 1);
+                    }
+                    else{
+                        console.log("Delete failed!");
+                    }
+                })
+                .error(function(res){
+                        console.log("Delete Api failed")
+                });
+
+            }, function () {
+                console.log('No');
+            });
+        };
+
+
 
         var indexFlag = 0;
         $scope.bool = true;
@@ -60,14 +73,7 @@ angular.module('gbApp')
             $scope.SbHeight = $window.innerHeight-250+'px';
             $scope.editbool = !$scope.editbool;
             $scope.editOriPos = '-100px';
-            indexFlag = -1;
-
-            for(var i=0; i<$scope.deductions.length; i++){
-                if(angular.equals($scope.deductions[i], Item)){
-                    indexFlag = i;
-                    break;
-                }
-            }
+            indexFlag = $scope.deductions.indexOf(Item);
 
             $scope.editName = Item.deductionName;
             $scope.editShort = Item.longDescription;
