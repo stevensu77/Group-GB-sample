@@ -65,10 +65,6 @@ angular
       
       if (requireLogin && !loginService.islogged()) {
         event.preventDefault();
-        // get me a login modal!
       }
   });
 });
-
-
-

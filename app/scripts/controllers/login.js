@@ -1,18 +1,17 @@
 'use strict';
 
 /**
- * @ngdoc function
- * @name gbApp.controller:MainCtrl
+ * @ngdoc loginCtrl
+ * @name gbApp
  * @description
- * # MainCtrl
- * Controller of the gbApp
+ * # Controller for the login page
+ * 
  */
 angular.module('gbApp')
   .controller('loginCtrl', function ($scope, loginService) {
-    //console.log('Login state');
-    $scope.msgtxt='';
+    $scope.msgtxt = '';
 	$scope.login = function(data){
-		loginService.login(data,$scope); //call login service
+		//call login service
+		loginService.login(data, $scope); 
 	};
-
   });

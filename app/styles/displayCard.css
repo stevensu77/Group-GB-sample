@@ -1,13 +1,19 @@
-.otterbox{
+.otterbox {
   margin-top: 10px;
-
 }
 
-.carddisplay{
+.card-mode {
+  overflow: auto;
+  height: 500px;
+}
+
+.card-display {
   margin-right: 35px;
-
+  width: 195px;
+  float: left;
 }
-.space{
+
+.space {
   height: 32px;
   padding-left: 10px;
   border-radius: 5px;
@@ -15,14 +21,33 @@
   margin-right: 15px;
 }
 
-
-.tableHead{
-  cursor:pointer;
+td.list-longDes {
+   width: 380px;
 }
-.tableHead:hover{
+
+h2.card-name {
+  font-size: 24px;
+}
+
+p.card-longDes {
+  font-size: 14px;
+}
+
+p.card-value {
   color: grey;
 }
 
+button.card-button {
+  width: 65px;
+  margin: 0 5px;
+}
+
+.tableHead {
+  cursor: pointer;
+}
+.tableHead:hover {
+  color: grey;
+}
 
 .fixed_headers td:nth-child(1),
 .fixed_headers th:nth-child(1) {
@@ -63,7 +88,6 @@
 
 .table.fixed_headers thead tr th{
   border-bottom: 0;
-
 }
 
 

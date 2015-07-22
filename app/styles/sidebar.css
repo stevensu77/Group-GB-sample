@@ -1,13 +1,8 @@
 .selected {
-/*    background-color: #EEE;*/
     background-color: lightgreen;
     border-radius: 10px;
 }
-/*!
- * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
+
 /* Toggle Styles */
 #sidebar-wrapper {
     width: 220px;
@@ -29,7 +24,7 @@
     list-style: none;
 }
 
-.sidebar-nav li{
+.sidebar-nav li {
     margin: 0;
     height:60px;
     padding-left:30px;
@@ -38,12 +33,12 @@
     font-size: 20px;
 }
 
-.sideItem{
-    cursor: pointer; cursor: hand;
+.sideItem {
+    cursor: hand;
 }
 
 
-.sideItem:hover{
+.sideItem:hover {
     background-color: green;
     opacity: 0.5;
 }

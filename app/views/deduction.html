@@ -11,7 +11,7 @@
 
 <br/><br/>
 
-<div ng-show="displayModel=='list'" >
+<div ng-show="displayModel==='list'" >
 	<table class="table table-striped table-hover fixed_headers">
 		<thead>
 		<tr>
@@ -26,7 +26,7 @@
 		<tbody>
 		<tr ng-repeat = "deduction in deductions | filter:deductionfilter | orderBy: sorting: reverse">
 			<td>{{deduction.deductionName}}</td>
-			<td style="width:380px">{{deduction.longDescription}}</td>
+			<td class="list-longDes">{{deduction.longDescription}}</td>
 			<td>{{deduction.shortDescription}}</td>
 			<td>{{deduction.value}}</td>
 			<td><button class="btn btn-info" ng-click="editDeduction(deduction)">Edit</button></td>
@@ -36,17 +36,15 @@
 	</table>
 </div>
 
-<div ng-show="displayModel=='card'"  style="overflow:auto; height:500px">
-		<div class="carddisplay" ng-repeat = "deduction in deductions | filter:deductionfilter"
-			style="width:195px; float:left"
-		>
-			<h2 style="font-size:24px">{{deduction.deductionName}}</h2>
-			<p style="font-size:14px"><i>{{deduction.longDescription}}</i></p>
-			<p>{{deduction.shortDescription}}</p>
-			<p style="color:grey">{{deduction.value}}</p>
-			<button  style="width:65px;margin:0 5px" class="btn btn-info" ng-click="editDeduction(deduction)">Edit</button>
-			<button class="btn btn-danger" ng-click="deleteDeduction(deduction)">Delete</button>
-		</div>
+<div ng-show="displayModel==='card'"  class="card-mode">
+	<div class="card-display" ng-repeat = "deduction in deductions | filter:deductionfilter">
+		<h2 class="card-name">{{deduction.deductionName}}</h2>
+		<p  class="card-longDes"><i>{{deduction.longDescription}}</i></p>
+		<p>{{deduction.shortDescription}}</p>
+		<p class="card-shortDes">{{deduction.value}}</p>
+		<button class="btn btn-info card-button" ng-click="editDeduction(deduction)">Edit</button>
+		<button class="btn btn-danger" ng-click="deleteDeduction(deduction)">Delete</button>
+	</div>
 </div>
 
   <sbdir></sbdir>

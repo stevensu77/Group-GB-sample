@@ -1,14 +1,14 @@
 
-<nav class="navbar navbar-default navbar-fixed-top" style="opacity:0.7">
+<nav class="navbar navbar-default navbar-fixed-top headbar-opacity">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand" ui-sref="root.overview" style="padding:0">
-        <img alt="Brand" src="images/greenbox.png" style="width:50px; height:50px">
+      <a class="navbar-brand headbar-brand" ui-sref="root.overview">
+        <img alt="Brand" src="images/greenbox.png" class="headbar-image">
       </a>
     </div>
-    <div style="display:inline-block; margin:15px;">Hello {{userName}}</div>
+    <div class="headbar-user">Hello {{userName}}</div>
     <span>{{ myDate| date:'MM/dd/yyyy'}}</span>
-    <button class="btn btn-default navbar-right" ng-click="logout()" style="margin-top:8px">Log Out</button>
+    <button class="btn btn-default navbar-right headbar-button" ng-click="logout()">Log Out</button>
 </nav>
 
 
